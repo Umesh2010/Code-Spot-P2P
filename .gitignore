@@ -362,3 +362,6 @@ package-lock.json
 
 # App Settings
 appsettings.json
+
+# server
+config.dev.env

@@ -174,7 +174,7 @@ async function getAvailableCursorColor(roomName) {
         return randomColor;
     }
                 
-    while (cursorColorList.Contains(randomColor)) {
+    while (cursorColorList.includes(randomColor)) {
         randomColor = getRandom(1, 25) + 1;
     }
     

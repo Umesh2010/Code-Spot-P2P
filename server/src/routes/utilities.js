@@ -13,18 +13,19 @@ const dbo = require("../db/conn");
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
 
-const smtpAddress = "smtp.gmail.com";
-const portNumber = 587;
-const enableSSL = true;
-const emailFromAddress = "DinamoTeam20@gmail.com";
+const smtpAddress = "smtppro.zoho.in";
+const portNumber = 465;
+// const enableSSL = true;
+const enableTLS = true;
+const emailFromAddress = "umeshpanchal@zohomail.in";
 
 utilityRoutes.route("/api/Utilities/SendEmail").post(async function (req, res) {
   let emailBody = "";
-  emailBody += `<p>Name: ${req.body.Name}</p>`;
-  emailBody += `<p>Email: ${req.body.Email}</p>`;
-  emailBody += `<p>Subject: ${req.body.Subject}</p>`;
+  emailBody += `<p>Name: ${req.body.name}</p>`;
+  emailBody += `<p>Email: ${req.body.email}</p>`;
+  emailBody += `<p>Subject: ${req.body.subject}</p>`;
   emailBody += `<p>Message: </p>`;
-  emailBody += `<p>${req.body.Message}</p>`;
+  emailBody += `<p>${req.body.message}</p>`;
     
   await SendEmail(emailBody);
 
@@ -51,7 +52,8 @@ async function SendEmail(emailBody) {
   let transporter = nodemailer.createTransport({
     host: smtpAddress,
     port: portNumber,
-    secure: false, // true for 465, false for other ports
+    secure: true, // true for 465, false for other ports
+    requireTLS: enableTLS,
     auth: {
       user: emailFromAddress,
       pass: password,
@@ -62,7 +64,8 @@ async function SendEmail(emailBody) {
   try {
     let info = await transporter.sendMail({
       from: emailFromAddress,
-      to: "gtt27@drexel.edu, atran33@mylangara.ca", // list of receivers
+      // to: "gtt27@drexel.edu, atran33@mylangara.ca", // list of receivers
+      to: "user7@mailinator.com", // list of receivers
       subject: "Message from Code Spot", // Subject line
       html: emailBody,
     });

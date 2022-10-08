@@ -2,10 +2,10 @@
   "name": "code-spot-server",
   "version": "1.0.0",
   "description": "A real-time collaborative code editor with the power of Visual Studio Code. ",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@
     "version": 2,
     "name": "code-spot-p2p",
     "builds": [
-       { "src": "src/server.js", "use": "@vercel/node" }
+       { "src": "src/server.js", "use": "@vercel/node", "method": ["POST", "GET", "PUT", "PATCH", "DELETE"] }
     ],
     "routes": [
        { "src": "/(.*)", "dest": "src/server.js" }

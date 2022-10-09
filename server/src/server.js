@@ -14,16 +14,31 @@ app.use(require("./routes/rooms"));
 // get driver connection
 const dbo = require("./db/conn");
 
-app.get('/', (req, res) => {
-  res.json({
-      message: "Run Success"
+app.get('/', async (req, res) => {
+  await dbo.connectToServer(async function (err) {
+    if (err) {
+      res.json({
+        message: "Error",
+        error: err
+      });
+    }
+    else {
+      res.json({
+        message: "New you access any api",
+        error: ""
+      });
+    }
   });
 });
 
-app.listen(port, () => {
+app.listen(port, async () => {
   // perform a database connection when server starts
-  dbo.connectToServer(function (err) {
-    if (err) console.error(err); 
+  await dbo.connectToServer(async function (err) {
+    if (err) {
+      console.log(`Error`);
+    }
+    else {
+      console.log(`Server is running on port: ${port}`);
+    }
   });
-  console.log(`Server is running on port: ${port}`);
 });

@@ -13,7 +13,13 @@ app.use(require("./routes/turnservertoken"));
 app.use(require("./routes/rooms"));
 // get driver connection
 const dbo = require("./db/conn");
- 
+
+app.get('/', (req, res) => {
+  res.json({
+      message: "Run Success"
+  });
+});
+
 app.listen(port, () => {
   // perform a database connection when server starts
   dbo.connectToServer(function (err) {

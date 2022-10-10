@@ -34,11 +34,11 @@ utilityRoutes.route("/api/Utilities/SendEmail").post(async function (req, res) {
 
 utilityRoutes.route("/api/Utilities/SendFeedbackForm").post(async function (req, res) {
   let emailBody = "";
-  emailBody += "<p>Your overall satisfaction of the app: " + req.body.satisfactionlevel + "</p>";
-  emailBody += "<p>How satisfied are you with the ability to collaborate with others using this app? " + req.body.collablevel + "</p>";
-  emailBody += "<p>What do you like most about the app? " + req.body.didwell + "</p>";
+  emailBody += "<p>Your overall satisfaction of the app: " + req.body.satisfactionLevel + "</p>";
+  emailBody += "<p>How satisfied are you with the ability to collaborate with others using this app? " + req.body.collabLevel + "</p>";
+  emailBody += "<p>What do you like most about the app? " + req.body.didWell + "</p>";
   emailBody += "<p>Which of the issues below was the biggest problem during your experience? " + req.body.issue + "</p>";
-  emailBody += "<p>Please describe the problem you encountered in more detail: " + req.body.issuedetails + "</p>";
+  emailBody += "<p>Please describe the problem you encountered in more detail: " + req.body.issueDetails + "</p>";
   emailBody += "<p>Do you have any suggestions for improvement? " + req.body.improvement + "</p>";
     
   await SendEmail(emailBody);

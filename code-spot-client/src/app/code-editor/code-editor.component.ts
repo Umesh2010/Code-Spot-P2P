@@ -448,7 +448,7 @@ export class CodeEditorComponent implements OnInit {
       window.location.protocol +
       '//' +
       window.location.hostname +
-      ':4200/editor/' +
+      '/editor/' +
       this.roomName;
     document.body.appendChild(selBox);
     selBox.focus();

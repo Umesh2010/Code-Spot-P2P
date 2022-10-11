@@ -5,7 +5,7 @@ const cors = require("cors");
 require("dotenv").config({ path: "./config/config.env" });
 const port = process.env.PORT || 3000;
 app.use(cors({
-  origin: 'https://code-spot-p2p-client.vercel.app'
+  origin: '*'
 }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));

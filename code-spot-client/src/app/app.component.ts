@@ -7,17 +7,13 @@ import { RoomService } from './services/room.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  
+export class AppComponent implements OnInit {
+
   title = 'code-spot-client';
 
-  constructor(private roomService: RoomService) {
-
-  }
+  constructor(private roomService: RoomService) { }
 
   ngOnInit(): void {
-    this.roomService.connectServer().subscribe((data: any) => {
-      console.log(data);      
-    });
+    this.roomService.connectServer().subscribe((data: any) => { });
   }
 }

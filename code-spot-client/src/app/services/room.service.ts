@@ -25,7 +25,7 @@ export class RoomService {
   constructor(private http: HttpClient) {}
 
   connectServer() {
-    return this.http.get("https://code-spot-p2p.vercel.app/");
+    return this.http.get("https://code-spot-p2p.vercel.app");
   }
 
   joinNewRoom(peerId: string): Observable<EnterRoomInfo> {

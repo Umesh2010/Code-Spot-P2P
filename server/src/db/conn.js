@@ -19,7 +19,13 @@ module.exports = {
     });
   },
 
-  getDb: async function () {    
+  getDb: function () {
+    client.connect(function (err, db) {
+      if (db) {
+        _db = db.db("spot");
+        console.log("Successfully connected to MongoDB.");
+      }
+    });
     return _db;
   },
 };

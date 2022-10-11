@@ -8,7 +8,7 @@ let siteId = 1;
 
 // GET: api/Room/GetPeerIdsInRoom?roomName=abc
 roomsRoutes.route("/api/Room/GetPeerIdsInRoom").get(async function (req, res) {
-    await dbConnection();
+    
     const roomName = req.query.roomName;
     const isRoomExist = await roomExist(roomName);
 
@@ -28,7 +28,7 @@ roomsRoutes.route("/api/Room/GetPeerIdsInRoom").get(async function (req, res) {
 
 // GET: api/Room/JoinNewRoom?peerId=abc
 roomsRoutes.route("/api/Room/JoinNewRoom").get(async function (req, res) {
-    await dbConnection();
+    
     const peerId = req.query.peerId;
     const roomName = await generateRoomName();
     const cursorColor = getRandom(1, 25) + 1;
@@ -56,7 +56,7 @@ roomsRoutes.route("/api/Room/JoinNewRoom").get(async function (req, res) {
 
 // Get: api/Room/JoinExistingRoom?peerId=abc&roomName=def
 roomsRoutes.route("/api/Room/JoinExistingRoom").get(async function (req, res) {
-    await dbConnection();
+    
     const peerId = req.query.peerId;
     const roomName = req.query.roomName;
     const isRoomExist = await roomExist(roomName);
@@ -103,7 +103,7 @@ roomsRoutes.route("/api/Room/JoinExistingRoom").get(async function (req, res) {
 
 // Post: api/Room/MarkPeerReceivedAllMessages
 roomsRoutes.route("/api/Room/MarkPeerReceivedAllMessages").post(async function (req, res) {
-    await dbConnection();
+    
     const peerId = req.body.Val;
     let db_connect = dbo.getDb();
     const query = { peerId };
@@ -119,7 +119,7 @@ roomsRoutes.route("/api/Room/MarkPeerReceivedAllMessages").post(async function (
 
 // Delete: api/Room/DeletePeer/abc
 roomsRoutes.route("/api/Room/DeletePeer/:peerId").post(async function (req, res) {
-    await dbConnection();
+    
     const peerId = req.params.peerId;
     let db_connect = dbo.getDb();
     let query = { peerId };
@@ -189,11 +189,4 @@ function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-async function dbConnection() {
-    await dbo.connectToServer(async function (err) {
-        if (err) {
-            console.log(err);
-        }
-    });
-}
 module.exports = roomsRoutes;

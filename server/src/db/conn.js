@@ -19,14 +19,7 @@ module.exports = {
     });
   },
 
-  getDb: function () {
-    client.connect(function (err, db) {
-      // Verify we got a good "db" object
-      if (db) {
-        _db = db.db("spot");
-        console.log("Successfully connected to MongoDB.");
-      }
-    });
+  getDb: async function () {    
     return _db;
   },
 };

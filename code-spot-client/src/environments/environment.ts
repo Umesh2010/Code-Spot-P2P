@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   // apiUrl: 'http://localhost:5000/api/',
   apiUrl: 'https://code-spot-p2p.vercel.app/api/',
-  peerServerHost: 'codespotpeerserver.herokuapp.com/'
+  peerServerHost: 'codespotpeerserver.herokuapp.com/',
+  connection: 'https://code-spot-p2p.vercel.app'
 };
 
 /*
